@@ -44,19 +44,33 @@ public class Loan {
 
 	public double GetPMT() {
 		double PMT = 0;
-		//TODO: Execute PMT function to determine payment with given rate, nbr of payments, PV, FV, compounding)
+		//TODO: 
+		
+		PMT = getLoanAmount() / (((1 + getInterestRate()) * (12 * getTotalPayments()) / 
+				(getInterestRate() * (1 + getInterestRate()) * (12 * getTotalPayments()))));
+		
 		return PMT;
 	}
 
 	public double getTotalPayments() {
-		//TODO: Return the total payments for the loan
+		//TODO: 
 		double tot = 0;
+		
+		for(Payment val : this.loanPayments){
+			
+			tot += val.getPayment();
+			
+		}
+		
 		return tot;
 	}
 
 	public double getTotalInterest() {
-		//TODO: Return the total interest for the loan
+		//TODO: 
 		double interest = 0;
+		
+		interest = this.getTotalPayments() - this.LoanAmount;
+		
 		return interest;
 	}
 
